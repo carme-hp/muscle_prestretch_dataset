@@ -156,7 +156,7 @@ def callback_function_contraction(raw_data):
     material_traction_z_second_quarter = material_traction_z_second_quarter/number_of_nodes
 
 
-    f = open("out/" + scenario_name + "_output.csv", "a")   # f = open("out/" + scenario_name + "output_" + str(variables.prestretch_force) + "N.csv", "a")
+    f = open("out/" + scenario_name + "/output.csv", "a")   # f = open("out/" + scenario_name + "output_" + str(variables.prestretch_force) + "N.csv", "a")
     f.write(str(t))
     f.write(",")
     f.write(str(max_displacement_middle))
@@ -291,7 +291,7 @@ config = {
                             "CellML": {
                               "modelFilename":          variables.input_dir + "hodgkin_huxley-razumova.cellml",
                               "meshName":               "fiber{}".format(fiber), 
-                              "stimulationLogFilename": "out/" + scenario_name + "stimulation.log",
+                              "stimulationLogFilename": "out/" + scenario_name + "/simulation.log",
 
                               "statesInitialValues":                        [],
                               "initializeStatesToEquilibrium":              False,
@@ -537,7 +537,7 @@ config = {
                         "CellML": {
                           "modelFilename":          variables.input_dir + "hodgkin_huxley-razumova.cellml",
                           "meshName":               "fiber{}".format(fiber), 
-                          "stimulationLogFilename": "out/" + scenario_name + "stimulation.log",
+                          "stimulationLogFilename": "out/" + scenario_name + "/simulation.log",
 
                           "statesInitialValues":                        [],
                           "initializeStatesToEquilibrium":              False,
