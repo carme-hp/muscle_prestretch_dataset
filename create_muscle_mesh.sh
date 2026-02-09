@@ -42,7 +42,7 @@ cp "$muscle_dir/fiber_seed_points_$id.json" ~/Software/biomesh/build/examples
 
 
 cd ~/Software/biomesh/build/examples
-./ellipsoid fibers_$id vector_field_$id.vtk seed_points_$id.json
+./ellipsoid fibers_$id vector_field_$id.vtk fiber_seed_points_$id.json
 cd -
 
 mv ~/Software/biomesh/build/results/fibers_$id* $muscle_dir
