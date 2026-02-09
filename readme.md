@@ -8,7 +8,7 @@ export OPENDIHU_HOME=/path/to/opendihu
 export BIOMESH_HOME=/path/to/biomesh
 ```
 
-### How-to generate meshes
+## 1. Generate Meshes
 
 Run `. create_muscle_mesh.sh` to generate all the mesh files required for an OpenDiHu simulation, e.g., `fibers_<muscle_id>.json` and `3D_mesh_<muscle_id>.vtk`. 
 
@@ -16,7 +16,7 @@ The script generates the meshes for a symmetric muscle by 3 geometrical paramete
 
 Instead of running the script, you can also generate the meshes manually as follows.
 
-** How to generate 3D meshes**
+### How to generate 3D meshes
 
 - Run `generate_fem_mesh.py`
     It generates a structured 3D mesh and saves it to `3D_mesh_<muscle_id>.vtk`. 
@@ -28,12 +28,12 @@ Instead of running the script, you can also generate the meshes manually as foll
 
     **Warning:** Always choose odd numbers for `nx`, `ny` and `nz`.
 
-** How to generate 3D meshes**
+### How to generate 3D meshes
 
 - Create input files for biomesh
     - Run `generate_vector_field.py`
 
-        It generates a 3D vector field that is used to define fiber directions in biomesh.
+        It generates a 3D vector field used to define fiber directions in biomesh.
 
         How-to run:
         ```
@@ -42,7 +42,7 @@ Instead of running the script, you can also generate the meshes manually as foll
         
     - Run `generate_seed_points.py`
 
-        It generates a list of points located at a plane normal to the z-axis. The points are used as starting vertices for fiber generation in biomesh.
+        It generates a list of points located on a plane normal to the z-axis. The points are used as starting vertices for fiber generation in biomesh.
 
         How-to run:
         ```
@@ -58,9 +58,9 @@ Instead of running the script, you can also generate the meshes manually as foll
     ./ellipsoid fibers_$id vector_field_$id.vtk fiber_seed_points_$id.json
     ```
     
-### 2. Simulate muscle prestretch + contraction
+## 2. Simulate muscle prestretch + contraction
 
-**How to compile the simulation**
+### How to compile the simulation
 
 Assuming you have defined `OPENDIHU_HOME`, the easiest way to compile the code is by defining 
 ```
@@ -71,9 +71,9 @@ and then run
 ```
 mkorn && sr
 ```
-This wil compile the code and write the executable to the newly generated folder `build_release/`. 
+This will compile the code and write the executable to the newly generated folder `build_release/`. 
 
-**How to run the simulation**
+### How to run the simulation
 
     TODO:
 
