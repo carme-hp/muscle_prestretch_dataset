@@ -38,7 +38,7 @@ cd ..
 
 # Generate fibers with biomesh
 cp "$muscle_dir/vector_field_$id.vtk" ~/Software/biomesh/build/examples
-cp "$muscle_dir/seed_points_$id.json" ~/Software/biomesh/build/examples
+cp "$muscle_dir/fiber_seed_points_$id.json" ~/Software/biomesh/build/examples
 
 
 cd ~/Software/biomesh/build/examples
