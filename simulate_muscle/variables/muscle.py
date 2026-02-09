@@ -2,25 +2,31 @@ import sys
 import json
 import read_structured_vtk
 
+muscle_id = int(sys.argv[-5])
+prestretch_force = float(sys.argv[-4])
+specific_states_call_frequency = float(sys.argv[-3])
+
 rank_no = int(sys.argv[-2])
 n_ranks = int(sys.argv[-1])
 
+
 # Mesh generation inputs
-muscle_id = "1"
+# muscle_id = 5
+muscle_dir = "../../muscle_meshes/muscle_" + str(muscle_id)
 geometry_name = "muscle_" + str(muscle_id)
 
 # Simulation input
 isometric = True
-prestretch_force = 4
+# prestretch_force = 4
 specific_states_call_enable_begin = 0.01  # time of first fiber activation
-specific_states_call_frequency = 0.0525    # frequency of fiber activation
+# specific_states_call_frequency = 0.0525    # frequency of fiber activation
 
 scenario_name = geometry_name + "_prestretch_" + str(prestretch_force) + "_frequency_" + str(specific_states_call_frequency)
 
 # -------------------------------------------------------------------
 # FEM mesh generation from .vts file
 # -------------------------------------------------------------------
-vtk_filename = "../../"+geometry_name+"/3D_mesh_" + str(muscle_id) + ".vtk"
+vtk_filename = muscle_dir+"/3D_mesh_" + str(muscle_id) + ".vtk"
 points, bs_x, bs_y, bs_z = read_structured_vtk.read_structured_vtk(vtk_filename)
 el_x, el_y, el_z = int((bs_x-1)/2), int((bs_y-1)/2), int((bs_z-1)/2)
 
@@ -38,9 +44,12 @@ meshes = { # create 3D mechanics mesh
 # fiber mesh generation from .json file
 # -------------------------------------------------------------------
 
-fiber_file = "../../"+geometry_name+"/fibers"+geometry_name+".json"
+fiber_file = muscle_dir+"/fibers_"+str(muscle_id)+".json"
 with open(fiber_file,"r") as f:
 	fdata = json.load(f)
+    
+if not isinstance(fdata, dict):
+    raise TypeError(f"Expected dict in {fiber_file}, got {type(fdata)}")
 
 fiber_idx = 0
 for fiber in fdata:
