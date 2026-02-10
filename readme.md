@@ -75,6 +75,11 @@ This will compile the code and write the executable to the newly generated folde
 
 ### How to run the simulation
 
-    TODO:
+Run `. run_muscle_simulation.sh` to run a prestretch + contraction simulation for a given muscle. All the simulation files are moved to the `results/` folder. For the simulation you require three inputs: `muscle_id`, `prestretch_force` and the activation frequency `specific_states_call_frequency`.
 
+To run it manually:
 
+```
+cd simulate_muscle/build_release
+./muscle ../settings_contraction_with_prestretch.py muscle.py "$id" "$prestretch_force" "$specific_states_call_frequency"
+```
