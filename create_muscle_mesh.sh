@@ -41,7 +41,9 @@ cp "$muscle_dir/vector_field_$id.vtk" ~/Software/biomesh/build/examples
 cp "$muscle_dir/fiber_seed_points_$id.json" ~/Software/biomesh/build/examples
 
 
-cd ~/Software/biomesh/build/examples
+#cd ~/Software/biomesh/build/examples
+cd $BIOMESH_BUILD/examples || exit 1
+
 ./ellipsoid fibers_$id vector_field_$id.vtk fiber_seed_points_$id.json
 cd -
 

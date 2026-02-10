@@ -2,11 +2,12 @@ This repository provides a pipeline from mesh generation to a prestretch + contr
 
 ## Prerequisites
 
-The user must install OpenDiHu and BioMesh and define the paths `OPENDIHU_HOME` and `BIOMESH_HOME`. You can define the paths by running
+The user must install [OpenDiHu](https://github.com/opendihu/opendihu) (use the branch `develop`) and [BioMesh](https://github.com/opendihu/biomesh) (use branch `filename-as-input`) and define the paths `OPENDIHU_HOME` and `BIOMESH_BUILD`. You can define the paths by running the next lines in every new terminal or adding them to your `.bashrc`.
 ```
 export OPENDIHU_HOME=/path/to/opendihu
-export BIOMESH_HOME=/path/to/biomesh
+export BIOMESH_BUILD=/path/to/biomesh/build
 ```
+Note that your build directory might not be in `biomesh/build` and this needs to be changed accordingly. 
 
 ## 1. Generate Meshes
 
@@ -62,7 +63,7 @@ Instead of running the script, you can also generate the meshes manually as foll
     
 - Run biomesh
 
-    TODO: version and path 
+    The biomesh executable is located in `$BIOMESH_BUILD` , inside the folder `examples/`.
     
     How-to run:
     ```
