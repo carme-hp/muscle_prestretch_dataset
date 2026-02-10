@@ -14,6 +14,17 @@ Run `. create_muscle_mesh.sh` to generate all the mesh files required for an Ope
 
 The script generates the meshes for a symmetric muscle by 3 geometrical parameters: length `L`, radius at the center `Rmax` and radius at the extremes `Rmin`. In addition, the user must provide an integer `muscle_id` to identify the muscle. All the generated files are saved to `muscle_meshes/muscle_<muscle_id>`.
 
+For example:
+```
+Enter dataset id: 3
+Enter number of fibers: 6
+Enter number of fem points: 7 7 21
+Enter length of the muscle: 5
+Enter radius at the center: 2
+Enter radius at the extreme: 1.1
+
+```
+
 Instead of running the script, you can also generate the meshes manually as follows.
 
 ### How to generate 3D meshes
@@ -59,6 +70,8 @@ Instead of running the script, you can also generate the meshes manually as foll
     ```
     
 ## 2. Simulate muscle prestretch + contraction
+
+Since the parameters are specified in python scripts, you only need to compile the simulation once. 
 
 ### How to compile the simulation
 
