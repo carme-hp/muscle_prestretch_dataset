@@ -59,22 +59,9 @@ def callback_function_prestretch(raw_data):
     average_length += z_data[number_of_nodes*(variables.bs_z -1) + i]
   average_length = average_length/number_of_nodes
 
-  f = open("length_after_prestretch_" + str(variables.prestretch_force) + "N.csv", "w")
+  f = open("out/" + scenario_name + "/prestretch.csv", "a")   # f = open("out/" + scenario_name + "output_" + str(variables.prestretch_force) + "N.csv", "a")
   f.write(str(average_length))
   f.close()
-
-  
-  
-  if data["timeStepNo"] == 1:
-    field_variables = data["data"]
-    
-    strain = max(field_variables[1]["components"][2]["values"])
-    stress = max(field_variables[5]["components"][2]["values"])
-    
-    print("strain: {}, stress: {}".format(strain, stress))
-    
-    with open("result.csv","a") as f:
-      f.write("{},{},{}\n".format(scenario_name,strain,stress))
 
 
 def callback_function_contraction(raw_data):
@@ -156,7 +143,7 @@ def callback_function_contraction(raw_data):
     material_traction_z_second_quarter = material_traction_z_second_quarter/number_of_nodes
 
 
-    f = open("out/" + scenario_name + "/output.csv", "a")   # f = open("out/" + scenario_name + "output_" + str(variables.prestretch_force) + "N.csv", "a")
+    f = open("out/" + scenario_name +  "/" + scenario_name + "_output.csv", "a")   # f = open("out/" + scenario_name + "output_" + str(variables.prestretch_force) + "N.csv", "a")
     f.write(str(t))
     f.write(",")
     f.write(str(max_displacement_middle))
