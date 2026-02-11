@@ -105,3 +105,5 @@ You can also run multiple simulations for the same muscle with different prestre
 prestretch_forces=(0.0 1.0 2.0)
 frequencies=(0.1 0.01)
 ```
+
+Be aware that you might choose a set of parameters that leads to un unstable simulation. For example, the activation frequency choose values between 0.025 and 0.1- Larger values might work for some cases. 
